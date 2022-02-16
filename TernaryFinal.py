@@ -22,7 +22,7 @@ from scipy.interpolate import interp1d
 from scipy.optimize import fsolve
 
 
-configFile = pd.read_csv('config.csv')  
+configFile = pd.read_csv('input/config.csv')  
 
 mA = configFile['mA'][0]
 mB = configFile['mB'][0]
@@ -54,7 +54,7 @@ Press0 = 1
 N_STEPS = 3000000           # number of MC steps
 N_PRINT = 10000             # frequency for printing
 SEED = 1                    # seed for randomizer
-Tstart = 1000               # starting temperature [K], 
+Tstart = 2000               # starting temperature [K], 
 # Tend = 500                  # final temperature [K]  
 T_ramp = 0.05 * N_STEPS     # ramping length for temperature
 Press = 1
@@ -63,7 +63,7 @@ Press0 = 1
 cC = 1-cA-cB                # initial concentration of C
 
 # import data for el_list.csv. Then we set constants to the variables
-data = pd.read_csv("el_list.csv").set_index('el')
+data = pd.read_csv("input/el_list.csv").set_index('el')
 
 # set variables from csv file
 # we can write this as a dictionary such that dictInfo becomes unnecessary

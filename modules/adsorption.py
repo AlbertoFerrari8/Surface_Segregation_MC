@@ -115,11 +115,11 @@ def AdsorptionEnergy(atom,a1,a2, H_offsets,dictInfo,lattice_parameter,SC):
     # and thus the max Z position is that of the maximum Z atom object
     # else we havehHydrogen atoms which are 1A above the max Z position, so subtract this
     all_pos = atom.get_positions()
-    if len(all_pos) == len(atom):
+    if len(all_pos) == SC[0]*SC[1]*SC[2]:
         maxZ = max(all_pos[:,2]) 
     else:
         maxZ = max(all_pos[:,2])-1  
-        
+    
     # if the a1 atom is on the surface, compute energy associated to this position
     if abs(a1Pos[2] - maxZ) < 1e-4 :
         # count the number of adsorbate atoms around the a1 position
